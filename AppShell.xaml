@@ -4,12 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:mob_equipmentApp"
+    xmlns:view="clr-namespace:mob_equipmentApp.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="mob_equipmentApp">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate view:EquipmentDetailPage}"
         Route="MainPage" />
 
 </Shell>
