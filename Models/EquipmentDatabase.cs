@@ -8,11 +8,19 @@ namespace mob_equipmentApp.Models
 {
     internal class EquipmentDatabase
     {
-        Equipment ironClub_6 = new Equipment(1, "6 Iron");
+        Equipment[] ironClubs = new Equipment[4];
 
-        public Equipment GetEquipment() 
+        public EquipmentDatabase() 
+        {
+            ironClubs[0] = new Equipment(1, "6 Iron");
+            ironClubs[1] = new Equipment(2, "7 Iron");
+            ironClubs[2] = new Equipment(3, "8 Iron");
+            ironClubs[3] = new Equipment(4, "9 Iron");
+        }
+
+        public Equipment[] GetEquipment() 
         { 
-            return ironClub_6;
+            return ironClubs;
         }
     }
 }
