@@ -8,9 +8,9 @@ using mob_equipmentApp.Models;
 
 namespace mob_equipmentApp.ViewModels
 {
-    internal class EquipmentViewModel : ObservableObject
+    public class EquipmentViewModel : ObservableObject
     {
-        EquipmentDatabase golfEquipmentDatabase = new EquipmentDatabase();
+        //EquipmentDatabase golfEquipmentDatabase = new EquipmentDatabase();
 
         int _id;
         String _name;
@@ -18,20 +18,22 @@ namespace mob_equipmentApp.ViewModels
         public int Id
         {
             get { return _id; }
-            set { _id = value; }
+            set => SetProperty(ref _id, value); // Antaa lisähyötyä, kun käytetään CommunityToolkit.Mvvm.ComponentModel pakettia
+            // Jos muutoksia, tekee tapahtuman ja kuuluttaa siitä
+            // automaattinen sidonta käyttöliittymän ja datan välillä
         }
 
         public String Name
         {
             get { return _name; }
-            set { _name = value; }
+            set => SetProperty(ref _name, value);
         }
 
-        public EquipmentViewModel()
+        // näytetään haluttu varuste
+        public EquipmentViewModel(Equipment equipment)
         {
-            Equipment tmpEquipment = golfEquipmentDatabase.GetEquipment();
-            _id = tmpEquipment.Id;
-            _name = tmpEquipment.Name;
+            _id = equipment.Id;
+            _name = equipment.Name;
         }
 
     }

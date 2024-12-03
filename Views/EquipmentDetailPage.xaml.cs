@@ -6,6 +6,6 @@ public partial class EquipmentDetailPage : ContentPage
 	{
 		InitializeComponent();
 
-        BindingContext = new ViewModels.EquipmentViewModel();
+        BindingContext = App.MainViewModel.SelectedEquipment;
     }
 }
