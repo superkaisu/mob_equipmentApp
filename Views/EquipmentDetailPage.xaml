@@ -4,14 +4,22 @@
              xmlns:vm="clr-namespace:mob_equipmentApp.ViewModels"
              x:Class="mob_equipmentApp.Views.EquipmentDetailPage"
              x:DataType="vm:EquipmentViewModel"
-             Title="EquipmentDetailPage">
+             Title="Equipment Details">
     <VerticalStackLayout>
         <Label 
             Text="{Binding Id}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        
         <Label 
             Text="{Binding Name}"
+            Margin="10"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <Image 
+            Source="{Binding ImgPath}"
+            Margin="10"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

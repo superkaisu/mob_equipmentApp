@@ -13,6 +13,8 @@ namespace mob_equipmentApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("GreatDayPersonalUse-14M2.ttf", "GreatDay");
+                    fonts.AddFont("GreatDayBoldPersonalUse-LBB3.ttf", "GreatDayBold");
                 });
 
 #if DEBUG
