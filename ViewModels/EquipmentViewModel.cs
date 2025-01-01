@@ -14,6 +14,7 @@ namespace mob_equipmentApp.ViewModels
 
         int _id;
         String _name;
+        String _imgPath;
 
         public int Id
         {
@@ -29,11 +30,18 @@ namespace mob_equipmentApp.ViewModels
             set => SetProperty(ref _name, value);
         }
 
+        public String ImgPath
+        {
+            get { return _imgPath; }
+            set => SetProperty(ref _imgPath, value);
+        }
+
         // näytetään haluttu varuste
         public EquipmentViewModel(Equipment equipment)
         {
             _id = equipment.Id;
             _name = equipment.Name;
+            _imgPath = equipment.ImgPath;
         }
 
     }

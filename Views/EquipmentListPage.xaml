@@ -5,18 +5,22 @@
              xmlns:local="clr-namespace:mob_equipmentApp"
              x:Class="mob_equipmentApp.Views.EquipmentListPage"
              x:DataType="vm:EquipmentListViewModel"
-             Title="EquipmentListPage"
+             Title="Equipment List Page"
              BindingContext="{x:Static local:App.MainViewModel}" >
-    <ListView ItemsSource="{Binding Equipment}" SelectedItem="{Binding SelectedEquipment, Mode=OneWayToSource}"
+    <FlexLayout Direction="Column" JustifyContent="SpaceEvenly" AlignItems="Center">
+        <!--Buttoni ei toimi vielä, tai siis ei näy oikein! Sitten jatka uuden tavaran lisäämisen näkymää-->
+        <Button Text="Add Equipment" Clicked="Button_AddEquipmentClicked" />
+        <ListView ItemsSource="{Binding Equipment}" SelectedItem="{Binding SelectedEquipment, Mode=OneWayToSource}"
               Margin="10" ItemTapped="ListView_EquipmentTapped">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Name}" x:DataType="vm:EquipmentViewModel">
-                    <TextCell.ContextActions>
-                        <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItem_Clicked"/>
-                    </TextCell.ContextActions>
-                </TextCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" x:DataType="vm:EquipmentViewModel">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItem_Clicked"/>
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
 </ContentPage>

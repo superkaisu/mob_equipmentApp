@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace mob_equipmentApp.Models
 {
-    public record Equipment(int Id, string Name);
+    public record Equipment(int Id, string Name, string ImgPath);
 }

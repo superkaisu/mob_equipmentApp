@@ -8,19 +8,19 @@ namespace mob_equipmentApp.Models
 {
     internal class EquipmentDatabase
     {
-        Equipment[] ironClubs = new Equipment[4];
-
-        public EquipmentDatabase() 
+        public async static Task<IEnumerable<Equipment>> GetEquipment()
         {
-            ironClubs[0] = new Equipment(1, "6 Iron");
-            ironClubs[1] = new Equipment(2, "7 Iron");
-            ironClubs[2] = new Equipment(3, "8 Iron");
-            ironClubs[3] = new Equipment(4, "9 Iron");
-        }
+            using Stream stream = await FileSystem.OpenAppPackageFileAsync("data.json");
 
-        public Equipment[] GetEquipment() 
-        { 
-            return ironClubs;
+
+            System.Text.Json.JsonSerializerOptions options = new()
+            {
+                PropertyNameCaseInsensitive = true,
+            };
+
+            IEnumerable<Equipment>? equipment = await System.Text.Json.JsonSerializer.DeserializeAsync<List<Equipment>>(stream, options);
+
+            return equipment ?? [];
         }
     }
 }

@@ -11,7 +11,7 @@ namespace mob_equipmentApp.ViewModels
 {
     public class EquipmentListViewModel : ObservableObject
     {
-        EquipmentDatabase equipmentDatabase = new EquipmentDatabase();
+        //EquipmentDatabase equipmentDatabase = new EquipmentDatabase();
 
         // tämä sitä varten, kun käyttäjä valitsee varusteen - voidaan näyttää tietoja
         private EquipmentViewModel _selectedEquipment;
@@ -28,7 +28,7 @@ namespace mob_equipmentApp.ViewModels
 
         public async Task RefreshEquipment()
         {
-            Equipment[] equipmentData = equipmentDatabase.GetEquipment();
+            IEnumerable<Models.Equipment> equipmentData = await Models.EquipmentDatabase.GetEquipment();
 
             foreach (Models.Equipment equipment in equipmentData)
                 Equipment.Add(new EquipmentViewModel(equipment));

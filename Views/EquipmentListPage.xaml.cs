@@ -19,4 +19,9 @@ public partial class EquipmentListPage : ContentPage
         App.MainViewModel.DeleteEquipment(equipment);
     }
 
+    private async void Button_AddEquipmentClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Views.AddEquipmentPage());
+    }
+
 }
