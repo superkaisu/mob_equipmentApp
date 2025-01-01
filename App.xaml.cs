@@ -9,9 +9,15 @@
 
             MainPage = new AppShell();
 
-            MainViewModel = new();
-            MainViewModel.RefreshEquipment();
+            MainViewModel = new ViewModels.EquipmentListViewModel();
 
+            InitializeAsync();
+
+        }
+
+        private async void InitializeAsync()
+        {
+            await MainViewModel.RefreshEquipment();
         }
     }
 }
